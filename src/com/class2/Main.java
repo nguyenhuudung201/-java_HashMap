@@ -3,6 +3,7 @@ package com.class2;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         DoctorManagement doctorManagement = new DoctorManagement();
@@ -42,7 +43,7 @@ public class Main {
                     System.out.println("Enter Id:");
                     Integer id=sc.nextInt();
                     doctorManagement.deleteDoctor(id);
-                    System.out.println("OK");
+                    System.out.println("Delete success");
                 }
                 break;
                 case 4: {

@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 public class DoctorList extends Doctor {
 
-
     @Override
     public void addNewPerson() throws Exception{
 
@@ -44,8 +43,14 @@ public class DoctorList extends Doctor {
             this.Specialization = Specialization;
 
             System.out.print("Enter Availability: ");
-            int Availability=Integer.parseInt(input.next());;
-            this.Availability=Availability;
+            String availability=input.nextLine();
+
+            if (availability == null)
+                throw new Exception("Please input availability");
+            if (Integer.parseInt(availability) < 0) {
+                    throw new Exception("Availability is greater than equal zero");
+                }
+            this.Availability= Integer.parseInt(availability);
 
         }
         catch (NumberFormatException e){
@@ -92,8 +97,13 @@ public class DoctorList extends Doctor {
             this.Specialization = Specialization;
 
             System.out.print("Enter Availability new : ");
-            int Availability=Integer.parseInt(input.next());;
-            this.Availability=Availability;
+            String availability=input.nextLine();
+            if (availability == null)
+                throw new Exception("Please input availability");
+            if (Integer.parseInt(availability) < 0) {
+                throw new Exception("Availability is greater than equal zero");
+            }
+            this.Availability= Integer.parseInt(availability);
 
         }
         catch (NumberFormatException e){
