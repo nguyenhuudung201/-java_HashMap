@@ -11,8 +11,12 @@ public class DoctorManagement {
     public void addNewPerson() throws Exception {
         Doctor newDoctor= new DoctorList();
         newDoctor.addNewPerson();
-        System.out.println("Your Availability : "+newDoctor.getId());
-        map.put(newDoctor.getId(),newDoctor );
+        if (map.containsKey(newDoctor.getId())){
+            System.out.println("key is exist");
+        }else {
+            System.out.println("Your Availability : "+newDoctor.getId());
+            map.put(newDoctor.getId(),newDoctor );
+        }
     }
     Doctor findDoctorById() {
         System.out.print("Enter id to find: ");

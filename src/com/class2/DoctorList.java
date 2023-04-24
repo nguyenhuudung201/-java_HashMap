@@ -103,6 +103,7 @@ public class DoctorList extends Doctor {
             if (Integer.parseInt(availability) < 0) {
                 throw new Exception("Availability is greater than equal zero");
             }
+
             this.Availability= Integer.parseInt(availability);
 
         }
