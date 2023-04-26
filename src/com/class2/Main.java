@@ -40,10 +40,14 @@ public class Main {
                 }
                 break;
                 case 3: {
-                    System.out.println("Enter Id:");
-                    Integer id=sc.nextInt();
-                    doctorManagement.deleteDoctor(id);
-                    System.out.println("Delete success");
+                    try{
+                        System.out.println("Enter Id:");
+                        Integer id=sc.nextInt();
+                        doctorManagement.deleteDoctor(id);
+                        System.out.println("Delete success");
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 }
                 break;
                 case 4: {

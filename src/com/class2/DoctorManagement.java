@@ -3,6 +3,8 @@ package com.class2;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
+
 public class DoctorManagement {
     HashMap<Integer,Doctor> map;
     public DoctorManagement() {
@@ -12,7 +14,7 @@ public class DoctorManagement {
         Doctor newDoctor= new DoctorList();
         newDoctor.addNewPerson();
         if (map.containsKey(newDoctor.getId())){
-            System.out.println("key is exist");
+            System.out.println("Availability already exist");
         }else {
             System.out.println("Your Availability : "+newDoctor.getId());
             map.put(newDoctor.getId(),newDoctor );
@@ -38,7 +40,14 @@ public class DoctorManagement {
             System.out.println("Not found");
         }
     }
-    public void deleteDoctor(Integer id){
+    public void deleteDoctor(Integer id) throws Exception{
+
+        if (map == null) {
+            throw new Exception("Database doesn't exist");
+        }
+        if (!map.containsKey(id)) {
+            throw new Exception("Doctor doesn't exist");
+        }
         this.map.remove(id).getId();
     }
 }
