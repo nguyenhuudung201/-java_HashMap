@@ -1,5 +1,6 @@
 package com.class2;
 
+import javax.naming.NamingException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,6 +12,8 @@ public class DoctorList extends Doctor {
 
         Scanner input = new Scanner(System.in);
         Pattern pattern = Pattern.compile("\\d{6}");
+        String regex="a-zA-Z+";
+        Pattern pattern_name = Pattern.compile(regex);
         try {
 
             System.out.print("Enter name: ");
@@ -18,6 +21,10 @@ public class DoctorList extends Doctor {
 
             if(name.equals("")) {
                 throw new Exception("Name  can not be empty");
+            }
+            Matcher matcher_name = pattern_name.matcher(name);
+            if(!matcher_name.matches()) {
+                throw new Exception("Name must be letter");
             }
             this.name=name;
             System.out.print("Enter code: ");
@@ -45,7 +52,7 @@ public class DoctorList extends Doctor {
             System.out.print("Enter Availability: ");
             String availability=input.nextLine();
 
-            if (availability == null)
+            if (availability.equals(""))
                 throw new Exception("Please input availability");
             if (Integer.parseInt(availability) < 0) {
                     throw new Exception("Availability is greater than equal zero");
@@ -53,6 +60,7 @@ public class DoctorList extends Doctor {
             this.Availability= Integer.parseInt(availability);
 
         }
+
         catch (NumberFormatException e){
             throw new Exception("NumberFormatException occurred");
         }
@@ -65,13 +73,19 @@ public class DoctorList extends Doctor {
     public void upDateDoctor() throws Exception {
         Scanner input = new Scanner(System.in);
         Pattern pattern = Pattern.compile("\\d{6}");
+        String regex="a-zA-Z+";
+        Pattern pattern_name = Pattern.compile(regex);
         try {
 
             System.out.print("Enter name new : ");
             String name = input.nextLine();
 
             if(name.equals("")) {
-                throw new Exception("Name  can not be empty");
+                throw new Exception("Name can not be empty");
+            }
+            Matcher matcher_name = pattern_name.matcher(name);
+            if(!matcher_name.matches()) {
+                throw new Exception("Name must be letter");
             }
             this.name=name;
             System.out.print("Enter code new : ");

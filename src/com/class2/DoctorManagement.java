@@ -41,7 +41,6 @@ public class DoctorManagement {
         }
     }
     public void deleteDoctor(Integer id) throws Exception{
-
         if (map == null) {
             throw new Exception("Database doesn't exist");
         }
